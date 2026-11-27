@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as TipsRouteImport } from './routes/tips'
+import { Route as ApiChatRouteImport } from './routes/api.chat'
+import { Route as ChatThreadIdRouteImport } from './routes/chat.$threadId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TipsRoute = TipsRouteImport.update({
+  id: '/tips',
+  path: '/tips',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatThreadIdRoute = ChatThreadIdRouteImport.update({
+  id: '/chat/$threadId',
+  path: '/chat/$threadId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/dashboard': typeof DashboardRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/tips': typeof TipsRoute
+  '/api/chat': typeof ApiChatRoute
+  '/chat/$threadId': typeof ChatThreadIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/dashboard': typeof DashboardRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/tips': typeof TipsRoute
+  '/api/chat': typeof ApiChatRoute
+  '/chat/$threadId': typeof ChatThreadIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/dashboard': typeof DashboardRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/tips': typeof TipsRoute
+  '/api/chat': typeof ApiChatRoute
+  '/chat/$threadId': typeof ChatThreadIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/assistant'
+    | '/dashboard'
+    | '/reset-password'
+    | '/tips'
+    | '/api/chat'
+    | '/chat/$threadId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/assistant'
+    | '/dashboard'
+    | '/reset-password'
+    | '/tips'
+    | '/api/chat'
+    | '/chat/$threadId'
+  id:
+    | '__root__'
+    | '/'
+    | '/assistant'
+    | '/dashboard'
+    | '/reset-password'
+    | '/tips'
+    | '/api/chat'
+    | '/chat/$threadId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssistantRoute: typeof AssistantRoute
+  DashboardRoute: typeof DashboardRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  TipsRoute: typeof TipsRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ChatThreadIdRoute: typeof ChatThreadIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tips': {
+      id: '/tips'
+      path: '/tips'
+      fullPath: '/tips'
+      preLoaderRoute: typeof TipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat/$threadId': {
+      id: '/chat/$threadId'
+      path: '/chat/$threadId'
+      fullPath: '/chat/$threadId'
+      preLoaderRoute: typeof ChatThreadIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssistantRoute: AssistantRoute,
+  DashboardRoute: DashboardRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  TipsRoute: TipsRoute,
+  ApiChatRoute: ApiChatRoute,
+  ChatThreadIdRoute: ChatThreadIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

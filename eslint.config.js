@@ -6,7 +6,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", ".output", ".vinxi", ".oj-cache"] },
+  { ignores: ["dist", ".output", ".vinxi", ".oj-cache", "src/generated/**", "src/integrations/**", "drizzle/**"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
@@ -37,4 +37,8 @@ export default tseslint.config(
     },
   },
   eslintPluginPrettier,
+  {
+    files: ["src/components/ai-elements/**", "src/components/ui/input-group.tsx", "src/components/ui/button-group.tsx", "src/components/ui/spinner.tsx"],
+    rules: { "prettier/prettier": "off" },
+  },
 );
