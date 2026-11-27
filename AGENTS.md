@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application rules
+- Use the generated AI Gateway Gemini contracts for server-side agricultural inference; this keeps model request types and private credentials out of the browser.
+- Compose the chat surface from installed AI Elements primitives; this preserves accessible input, streamed markdown and transcript behavior.
+- Use Lovable Assets pointer files for app imagery; this keeps raw media outside the source repository.
